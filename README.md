@@ -1,2 +1,2 @@
-# MinesweeperWPF
+# Minesweeper
 Simple minesweeper game
