@@ -58,13 +58,13 @@ namespace Minesweeper
 
         public static void SaveScores()
         {
-            FileStream fs = new FileStream("rekordLako.bin", FileMode.Create);
+            FileStream fs = new FileStream("scoreEasy.bin", FileMode.Create);
             bin.Serialize(fs, scoresEasy);
             fs.Close();
-            fs = new FileStream("rekordSrednje.bin", FileMode.Create);
+            fs = new FileStream("scoreMedium.bin", FileMode.Create);
             bin.Serialize(fs, scoresMedium);
             fs.Close();
-            fs = new FileStream("rekordTesko.bin", FileMode.Create);
+            fs = new FileStream("scoreHard.bin", FileMode.Create);
             bin.Serialize(fs, scoresHard);
             fs.Close();
         }
@@ -73,13 +73,13 @@ namespace Minesweeper
         {
             try
             {
-                FileStream fs = new FileStream("rekordLako.bin", FileMode.Open);
+                FileStream fs = new FileStream("scoreEasy.bin", FileMode.Open);
                 scoresEasy = (List<Score>)bin.Deserialize(fs);
                 fs.Close();
-                fs = new FileStream("rekordSrednje.bin", FileMode.Open);
+                fs = new FileStream("scoreMedium.bin", FileMode.Open);
                 scoresMedium = (List<Score>)bin.Deserialize(fs);
                 fs.Close();
-                fs = new FileStream("rekordTesko.bin", FileMode.Open);
+                fs = new FileStream("scoreHard.bin", FileMode.Open);
                 scoresHard = (List<Score>)bin.Deserialize(fs);
                 fs.Close();
             }
