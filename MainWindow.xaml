@@ -1,0 +1,50 @@
+﻿<Window x:Class="Minesweeper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Minesweeper"
+        mc:Ignorable="d"
+        Title="Minesweeper" ResizeMode="NoResize" Closing="Window_Closing">
+    <Window.Resources>
+        <BitmapImage x:Key="mine" UriSource="Images/mine.jpg" />
+        <BitmapImage x:Key="smiley" UriSource="Images/smiley.png" />
+        <BitmapImage x:Key="smileyDefeat" UriSource="Images/smileyDefeat.png" />
+        <BitmapImage x:Key="smileyVictory" UriSource="Images/smileyVictory.jpg" />
+        <BitmapImage x:Key="flag" UriSource="Images/flag.png" />
+        <BitmapImage x:Key="flag2" UriSource="Images/flag2.png" />
+    </Window.Resources>
+    
+    <StackPanel Name="pnlMainPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Menu Width="Auto" Height="20" Margin="10,0,10,0">
+            <MenuItem Header="New Game">
+                <MenuItem Name="menuEasy" Header="Easy" Click="MenuClicked"/>
+                <MenuItem Name="menuMedium" Header="Medium" Click="MenuClicked"/>
+                <MenuItem Name="menuHard" Header="Hard" Click="MenuClicked"/>
+            </MenuItem>
+            <MenuItem Header="High scores" Click="ShowScores"/>
+        </Menu>
+        <Grid x:Name="Commands" Height="80" Width="Auto" VerticalAlignment="top" HorizontalAlignment="Stretch" Margin="10,0,10,0" Background="#dddddd">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblMines"  Grid.Column="0" Content="0" FontFamily="/Minesweeper;component/Fonts/#Digital-7" Foreground="Red" FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+            <Button x:Name="btnNewGame" Click="ResetGame" Grid.Column="1" Height="50" Width="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                <Image Name="imgSmiley" Source ="./Images/smiley.png">
+                    
+                </Image>
+            </Button>
+            
+            <ToggleButton x:Name="btnFlag" Grid.Column="2" Height="50" Width="50"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image x:Name ="imgFlag" Source="./Images/flag.png"></Image>                
+            </ToggleButton>
+            <Label x:Name="lblTimer" Grid.Column="3" Content="0" FontFamily="/Minesweeper;component/Fonts/#Digital-7" Foreground="Red" FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+        </Grid>
+        <StackPanel x:Name ="pnlPlayField" Height ="Auto" Width="Auto" VerticalAlignment="Bottom" Margin="10,10,10,10" Background="Red"/>
+    </StackPanel>
+
+</Window>
+   
